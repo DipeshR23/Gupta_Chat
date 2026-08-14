@@ -1,0 +1,286 @@
+/* Files - consistent three-color system */
+
+.file-sharing-page {
+  display: flex;
+  height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.file-sharing-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--color-bg-elevated);
+  border-right: var(--border-width) solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.file-sharing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.file-sharing-header h1 {
+  font-size: 1.25rem;
+}
+
+.back-button {
+  padding: var(--space-1) var(--space-3);
+  background: none;
+  color: var(--color-text-secondary);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.back-button:focus-visible {
+  outline: var(--border-width) solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.contacts-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2);
+}
+
+.file-sharing-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+
+.file-sharing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-elevated);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.contact-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.contact-status {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.select-file-button {
+  white-space: nowrap;
+}
+
+.error-message {
+  margin: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-error);
+  border-radius: var(--border-radius);
+  color: var(--color-error);
+  font-size: 0.9rem;
+  background-color: rgba(255, 68, 68, 0.08);
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: var(--color-bg-overlay);
+  margin: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.files-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-bg-elevated);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease;
+}
+
+.file-item:hover {
+  background-color: var(--color-bg-overlay);
+}
+
+.file-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-overlay);
+  border-radius: var(--border-radius);
+}
+
+.file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: var(--space-1);
+}
+
+.file-meta {
+  display: flex;
+  gap: var(--space-3);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.file-status {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.file-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.download-button {
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.85rem;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: var(--space-1);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  color: var(--color-error);
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.delete-button:focus-visible {
+  outline: var(--border-width) solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.empty-state h2 {
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.empty-state .hint {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/* Mobile: full-width sidebar */
+@media (max-width: 640px) {
+  .file-sharing-sidebar {
+    width: 100%;
+    border-right: none;
+  }
+
+  .file-sharing-header {
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .files-list {
+    padding: var(--space-3);
+  }
+
+  .file-item {
+    padding: var(--space-2);
+  }
+}
+
+/* Tablet */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .file-sharing-sidebar {
+    width: 280px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .file-sharing-sidebar {
+    width: 320px;
+  }
+}

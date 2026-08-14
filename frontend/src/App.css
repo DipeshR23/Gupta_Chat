@@ -1,0 +1,114 @@
+/* App-level styles */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Consistent screen wrappers */
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+  text-align: center;
+  background-color: var(--color-bg);
+}
+
+.screen h1 {
+  margin-bottom: var(--space-3);
+}
+
+.screen p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+  max-width: 480px;
+}
+
+/* Consistent card style */
+.card {
+  background-color: var(--color-bg-elevated);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-5);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Consistent empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.empty-state h2 {
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.empty-state .hint {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/* Consistent error message */
+.error-message {
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-error);
+  border-radius: var(--border-radius);
+  color: var(--color-error);
+  font-size: 0.9rem;
+  background-color: rgba(255, 68, 68, 0.08);
+}
+
+/* Consistent success message */
+.success-message {
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--border-radius);
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  background-color: rgba(0, 255, 136, 0.08);
+}
+
+/* Responsive helpers */
+@media (max-width: 640px) {
+  .card {
+    padding: var(--space-4);
+  }
+
+  .screen {
+    padding: var(--space-3);
+  }
+
+  .screen h1 {
+    font-size: 1.3rem;
+  }
+
+  .screen p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .card {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card {
+    max-width: 480px;
+  }
+}
