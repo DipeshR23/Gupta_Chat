@@ -7,7 +7,8 @@ vars = { ENVIRONMENT = "development" }
 
 [[d1_databases]]
 binding = "DB"
-database_id = "gupta-chat-db"
+database_name = "gupta-chat-db"
+database_id = "84cb5e7b-4325-4dd0-8e18-6ae4ccbec3b1"
 
 [[r2_buckets]]
 binding = "FILE_STORE"
