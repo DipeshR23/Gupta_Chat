@@ -16,15 +16,23 @@ export interface Contact {
   }[];
 }
 
-function toContact(user: any): Contact {
+function toContact(user: unknown): Contact {
+  const record = user as Record<string, unknown>;
+  const signedPreKey = (record.signedPreKey || record.signed_prekey || {}) as Record<string, unknown>;
+  const oneTimePreKeys = (record.oneTimePreKeys || record.one_time_prekeys || []) as Array<Record<string, unknown>>;
+
   return {
-    id: user.id,
-    username: user.username,
-    publicIdentityKey: user.publicIdentityKey,
-    signedPreKey: user.signedPreKey,
-    oneTimePreKeys: (user.oneTimePreKeys || []).map((key: any) => ({
-      id: key.keyId || key.id,
-      publicKey: key.publicKey,
+    id: String(record.id ?? ''),
+    username: String(record.username ?? ''),
+    publicIdentityKey: (record.publicIdentityKey || record.public_identity_key || {}) as JsonWebKey,
+    signedPreKey: {
+      keyId: String((signedPreKey.keyId ?? signedPreKey.key_id ?? '') as string),
+      publicKey: (signedPreKey.publicKey ?? signedPreKey.public_key ?? {}) as JsonWebKey,
+      signature: String((signedPreKey.signature ?? '') as string),
+    },
+    oneTimePreKeys: oneTimePreKeys.map(key => ({
+      id: String((key.id ?? key.keyId ?? '') as string),
+      publicKey: (key.publicKey ?? key.public_key ?? {}) as JsonWebKey,
     })),
   };
 }
