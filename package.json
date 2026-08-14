@@ -8,10 +8,10 @@
     "worker"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:worker\"",
-    "dev:frontend": "npm run dev --workspace=frontend",
-    "dev:worker": "npm run dev --workspace=worker",
-    "build": "npm run build --workspaces",
+    "dev": "node init && concurrently \"npm run dev:frontend\" \"npm run dev:worker\"",
+    "dev:frontend": "node init && npm run dev --workspace=frontend",
+    "dev:worker": "node init && npm run dev --workspace=worker",
+    "build": "node init && npm run build --workspaces",
     "test": "npm run test --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "migrate": "npm run migrate --workspace=worker",
