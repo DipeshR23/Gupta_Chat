@@ -125,6 +125,10 @@ Gupta_Chat/
 
 ## Troubleshooting
 
+### IndexedDB schema error: "One of the specified object stores was not found"
+
+This can happen if the browser cached an older local database schema from a previous build. The current schema version is `2`. If you still see this error after refreshing, clear the site’s IndexedDB data or use the dev reset path.
+
 ### Wrangler "No bindings found"
 
 This is expected in local mode without a Cloudflare account. The worker will still start, but D1/R2 operations will fail. To fully test locally, configure Wrangler with a `CLOUDFLARE_API_TOKEN` and create the D1 database.

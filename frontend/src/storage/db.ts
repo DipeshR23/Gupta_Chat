@@ -6,7 +6,7 @@
 import { openDB, type IDBPDatabase } from 'idb';
 
 export const DB_NAME = 'gupta-chat-db';
-export const DB_VERSION = 1;
+export const DB_VERSION = 2;
 
 let dbInstance: IDBPDatabase | null = null;
 
@@ -68,4 +68,15 @@ export async function closeDb(): Promise<void> {
     dbInstance.close();
     dbInstance = null;
   }
+}
+
+export async function deleteDb(): Promise<void> {
+  await closeDb();
+  // indexedDB.deleteDatabase is safe to call even if the DB does not exist
+  await new Promise<void>((resolve, reject) => {
+    const request = indexedDB.deleteDatabase(DB_NAME);
+    request.onsuccess = () => resolve();
+    request.onerror = () => reject(request.error);
+    request.onblocked = () => resolve();
+  });
 }
