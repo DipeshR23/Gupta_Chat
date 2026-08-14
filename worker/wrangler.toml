@@ -1,0 +1,46 @@
+name = "gupta-chat-worker"
+main = "src/index.ts"
+compatibility_date = "2025-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# Production environment
+[env.production]
+  vars = { ENVIRONMENT = "production" }
+
+  [[env.production.d1_databases]]
+    binding = "DB"
+    database_name = "gupta-chat-db"
+
+  [[env.production.r2_buckets]]
+    binding = "FILE_STORE"
+    bucket_name = "gupta-chat-files"
+
+  [[env.production.durable_objects.bindings]]
+    name = "CHAT_ROOM"
+    class_name = "ChatRoom"
+    script_name = "gupta-chat-worker"
+
+  [[env.production.migrations]]
+    tag = "v1"
+    new_sqlite_classes = ["ChatRoom"]
+
+# Development environment
+[env.dev]
+  vars = { ENVIRONMENT = "development" }
+
+  [[env.dev.d1_databases]]
+    binding = "DB"
+    database_name = "gupta-chat-db"
+
+  [[env.dev.r2_buckets]]
+    binding = "FILE_STORE"
+    bucket_name = "gupta-chat-files-dev"
+
+  [[env.dev.durable_objects.bindings]]
+    name = "CHAT_ROOM"
+    class_name = "ChatRoom"
+    script_name = "gupta-chat-worker"
+
+  [[env.dev.migrations]]
+    tag = "v1"
+    new_sqlite_classes = ["ChatRoom"]

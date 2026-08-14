@@ -1,0 +1,19 @@
+{
+  "name": "gupta-chat-worker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "tsc -b && esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm --platform=neutral --target=esnext",
+    "deploy": "wrangler deploy",
+    "test": "vitest",
+    "migrate": "wrangler d1 migrate gupta-chat-db"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250110.0",
+    "@types/node": "^22.10.2",
+    "typescript": "~5.6.2",
+    "vitest": "^2.1.8",
+    "wrangler": "^3.99.0"
+  }
+}
