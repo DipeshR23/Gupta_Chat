@@ -60,7 +60,7 @@ The `npm run dev` command starts both frontend and worker concurrently:
 
 ### 4. Local Wrangler Setup
 
-The worker uses Cloudflare Wrangler for local development. Bindings are now defined at the top level of `wrangler.toml`, so `wrangler dev` loads them by default.
+The worker uses Cloudflare Wrangler for local development. Bindings are defined at the top level of `wrangler.toml`, so `wrangler dev` loads them by default.
 
 To create and initialize the local D1 database:
 
@@ -70,7 +70,9 @@ npx wrangler d1 create gupta-chat-db
 npx wrangler d1 migrations apply gupta-chat-db --local
 ```
 
-Note: Wrangler v3 may prompt for a Cloudflare API token for remote operations. Local development does not require a token.
+Note: The local D1 binding uses `database_id = "gupta-chat-db"` in `wrangler.toml`. For production, replace this with the actual database ID returned by `wrangler d1 create`.
+
+Wrangler v3 may prompt for a Cloudflare API token for remote operations. Local development does not require a token.
 
 ### 5. Run Tests
 
