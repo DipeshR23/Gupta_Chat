@@ -51,12 +51,15 @@ export class UserService {
       'INSERT INTO identity_keys (user_id, public_key, key_version, created_at) VALUES (?, ?, ?, ?)'
     ).bind(userId, JSON.stringify(data.publicIdentityKey), 1, now).run();
 
+    const signedPreKeyId = `spk-${userId}-${data.signedPreKey.keyId}`;
+
     // Store signed pre-key
     await env.DB.prepare(
-      'INSERT INTO signed_prekeys (id, user_id, public_key, signature, created_at, expires_at, status) VALUES (?, ?, ?, ?, ?, ?, ?)'
+      'INSERT INTO signed_prekeys (id, user_id, key_id, public_key, signature, created_at, expires_at, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
     ).bind(
-      data.signedPreKey.keyId,
+      signedPreKeyId,
       userId,
+      data.signedPreKey.keyId,
       JSON.stringify(data.signedPreKey.publicKey),
       data.signedPreKey.signature,
       now,
@@ -66,9 +69,10 @@ export class UserService {
 
     // Store one-time pre-keys
     for (const preKey of data.oneTimePreKeys) {
+      const preKeyId = `otk-${userId}-${preKey.keyId}`;
       await env.DB.prepare(
-        'INSERT INTO one_time_prekeys (id, user_id, public_key, status, created_at) VALUES (?, ?, ?, ?, ?)'
-      ).bind(preKey.keyId, userId, JSON.stringify(preKey.publicKey), 'available', now).run();
+        'INSERT INTO one_time_prekeys (id, user_id, key_id, public_key, status, created_at) VALUES (?, ?, ?, ?, ?, ?)'
+      ).bind(preKeyId, userId, preKey.keyId, JSON.stringify(preKey.publicKey), 'available', now).run();
     }
 
     return { id: userId, username: data.username };
