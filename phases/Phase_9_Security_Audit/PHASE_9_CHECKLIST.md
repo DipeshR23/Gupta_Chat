@@ -1,0 +1,23 @@
+# Phase 9 Checklist
+
+- [ ] No plaintext message network leak
+- [ ] No plaintext file upload
+- [ ] No private key server-side
+- [ ] No sensitive logs
+- [ ] D1 reviewed
+- [ ] R2 reviewed
+- [ ] Authorization tested
+- [ ] IDOR tested
+- [ ] Rate limiting tested
+- [ ] XSS tested
+- [ ] Injection tested
+- [ ] WebSocket security tested
+- [ ] File security tested
+- [ ] Replay tested
+- [ ] Identity change tested
+- [ ] Dependency audit
+- [ ] CSP
+- [ ] Security headers
+- [ ] Secrets reviewed
+- [ ] FULL SECURITY REVIEW
+- [ ] STOP

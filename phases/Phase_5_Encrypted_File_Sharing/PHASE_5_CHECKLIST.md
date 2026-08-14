@@ -1,0 +1,21 @@
+# Phase 5 Checklist
+
+- [ ] File validation
+- [ ] Random per-file key
+- [ ] Client-side encryption
+- [ ] Ciphertext upload
+- [ ] R2 authorization
+- [ ] Recipient download
+- [ ] Local decryption
+- [ ] Images tested
+- [ ] GIF tested
+- [ ] Video tested
+- [ ] PDF tested
+- [ ] Office documents tested
+- [ ] ZIP tested
+- [ ] Corruption tested
+- [ ] Wrong-key test
+- [ ] Large-file test
+- [ ] Interrupted transfer test
+- [ ] R2 inspected for plaintext
+- [ ] STOP / REVIEW

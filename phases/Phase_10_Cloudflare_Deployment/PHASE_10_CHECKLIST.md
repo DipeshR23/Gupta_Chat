@@ -1,0 +1,22 @@
+# Phase 10 Checklist
+
+- [x] Pages deployment configured
+- [x] Worker deployment configured
+- [x] Durable Objects configured
+- [x] D1 configured
+- [x] R2 configured
+- [x] Migrations defined
+- [x] Secrets documented
+- [x] HTTPS/WSS enforced in config
+- [x] CORS/CSP documented
+- [x] Rate limiting documented
+- [x] CI/CD pipeline configured
+- [x] Frontend build passing
+- [x] Worker build passing
+- [x] Integration tests passing
+- [x] Phase 9 security fixes applied (C2, C4)
+- [ ] Production messaging tested
+- [ ] Production files tested
+- [ ] Production deletion tested
+- [ ] Current Cloudflare limits recorded
+- [ ] STOP / REVIEW
