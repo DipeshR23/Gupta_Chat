@@ -96,7 +96,19 @@ export async function handleApiRequest(request: Request, env: Env): Promise<Resp
       if (!user) {
         return applySecurityHeaders(createErrorResponse('User not found', 404));
       }
-      return applySecurityHeaders(createJsonResponse(user));
+
+      const publicKeyBundle = await userService.getPublicKeyBundle(username, env);
+      if (!publicKeyBundle) {
+        return applySecurityHeaders(createErrorResponse('Public key bundle not found', 404));
+      }
+
+      return applySecurityHeaders(createJsonResponse({
+        id: user.id,
+        username: user.username,
+        publicIdentityKey: publicKeyBundle.identity_key,
+        signedPreKey: publicKeyBundle.signed_prekey,
+        oneTimePreKeys: publicKeyBundle.one_time_prekeys,
+      }));
     }
 
     // Protected routes
