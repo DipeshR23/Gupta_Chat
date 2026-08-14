@@ -169,13 +169,11 @@ Implement the user's cryptographic identity safely, including username registrat
 ## 6. Known Limitations
 
 ### 6.1 Current Limitations
-- Identity key signing not fully implemented (placeholder)
 - Key rotation UI not implemented
 - Identity change warning not implemented
 - Pre-key exhaustion handling not fully tested
 
 ### 6.2 Future Improvements
-- Implement ECDSA P-256 signature generation for signed pre-keys
 - Add key rotation UI in settings
 - Implement identity change detection and warnings
 - Add biometric authentication for identity access

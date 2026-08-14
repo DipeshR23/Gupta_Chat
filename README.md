@@ -74,4 +74,4 @@ See `docs/SECURITY.md`, `docs/CRYPTOGRAPHY.md`, and `docs/THREAT_MODEL.md`.
 
 ## Important
 
-This repo includes implementation scaffolding and documentation. Some protocol pieces are still placeholders pending Phase 9 security fixes. Do not treat the system as production-ready until the release checklist is completed.
+This repo includes implementation scaffolding and documentation. While Phase 9 security hardening is complete, the system still requires end-to-end local testing, Cloudflare resource provisioning, and production deployment verification before it can be considered production-ready. Do not treat the system as production-ready until the release checklist is completed.

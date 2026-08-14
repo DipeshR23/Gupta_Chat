@@ -151,7 +151,6 @@ Key limits to monitor:
 
 ### 9.1 Current Limitations
 - Backend auth is not fully implemented
-- Signed pre-key signatures are placeholders
 - HKDF salts are empty in X3DH
 - Rate limiting not implemented
 - CSP headers not configured

@@ -91,7 +91,6 @@ Finalize documentation, release artifacts, and verification steps required befor
 
 ### 4.1 Implementation
 - Backend auth is not fully implemented
-- Signed pre-key signatures are placeholders
 - HKDF salts are empty in X3DH
 - Rate limiting not implemented
 - CSP headers not configured
