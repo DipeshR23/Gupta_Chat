@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
-    "build": "tsc -b && esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm --platform=neutral --target=esnext",
+    "dev": "node init && wrangler dev",
+    "build": "node init && tsc -b && esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm --platform=neutral --target=esnext",
     "deploy": "wrangler deploy",
     "test": "vitest",
     "migrate": "wrangler d1 migrate gupta-chat-db"
