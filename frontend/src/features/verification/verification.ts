@@ -4,7 +4,6 @@
  */
 
 import { generateId } from '../../crypto/utils';
-import { logger } from '../../utils/logger';
 import type { Identity } from '../../types';
 import { getDb } from '../../storage/db';
 
@@ -61,12 +60,11 @@ export async function generateQRCode(data: string): Promise<string> {
 }
 
 /**
- * Parse QR code data (placeholder)
+ * Parse QR code data
+ * @throws Error - QR code scanning requires an external library and is not implemented in V1
  */
-export async function parseQRCode(_imageData: string): Promise<string | null> {
-  // In production, use a QR code scanning library
-  logger.warn('QR code scanning not fully implemented');
-  return null;
+export async function parseQRCode(_imageData: string): Promise<string> {
+  throw new Error('QR code scanning is not implemented in V1. Use safety number comparison instead.');
 }
 
 /**

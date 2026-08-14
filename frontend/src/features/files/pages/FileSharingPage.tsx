@@ -77,10 +77,21 @@ export function FileSharingPage({ contact, onNavigate }: FileSharingPageProps) {
           </button>
         </div>
         <div className="contacts-list">
-          {/* TODO: Load contacts from storage */}
-          <div className="empty-state">
-            <p>No contacts available</p>
-          </div>
+          {selectedContact ? (
+            <div className="contact-item selected">
+              <div className="contact-avatar">
+                {selectedContact.username.charAt(0).toUpperCase()}
+              </div>
+              <div className="contact-details">
+                <div className="contact-name">{selectedContact.username}</div>
+                <div className="contact-status">Online</div>
+              </div>
+            </div>
+          ) : (
+            <div className="empty-state">
+              <p>Select a contact from the Contacts page to share files.</p>
+            </div>
+          )}
         </div>
       </div>
 
